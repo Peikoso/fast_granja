@@ -2,7 +2,7 @@ from http import HTTPStatus
 from fastapi import APIRouter, HTTPException
 from sqlalchemy import select
 from fast_granja.models import ChickenRaceModel, FlockModel
-from fast_granja.schema.flock_schema import (
+from fast_granja.schema.flock import (
     Flock,
     FlockCreate,
     FlockOverview,

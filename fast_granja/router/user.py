@@ -2,9 +2,9 @@ from http import HTTPStatus
 from fastapi import APIRouter, HTTPException
 from sqlalchemy import select
 from fast_granja.models import UserModel
-from fast_granja.schema.user_schema import User, UserDTO, UserPatch
+from fast_granja.schema.user_ import User, UserDTO, UserPatch
 
-from fast_granja.router.annotated import T_Session
+from fast_granja.router.annotated import T_Admin, T_Session
 from fast_granja.security import get_password_hash
 
 
@@ -73,6 +73,8 @@ async def patch_user(user_id: int, user: UserPatch, session: T_Session):
                 status_code=HTTPStatus.CONFLICT,
                 detail="Email already exists",
             )
+
+    db_user = await session.scalar(select(UserModel).where(UserModel.id == user_id))
 
     if not db_user:
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="User not found.")

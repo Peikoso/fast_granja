@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-from fast_granja.router.user_router import router as user
-from fast_granja.router.flock_router import router as flock
-from fast_granja.router.eggs_router import router as eggs
-from fast_granja.router.chicken.death_router import router as chicken_death
-from fast_granja.router.chicken.race_router import router as chicken_race
-from fast_granja.router.chicken.reason_router import router as chicken_death_reason
-
+from fast_granja.router.user import router as user
+from fast_granja.router.flock import router as flock
+from fast_granja.router.eggs import router as eggs
+from fast_granja.router.chicken.death import router as chicken_death
+from fast_granja.router.chicken.race import router as chicken_race
+from fast_granja.router.chicken.reason import router as chicken_death_reason
+from fast_granja.router.auth import router as auth_router
 
 app = FastAPI()
 
@@ -17,6 +17,7 @@ app.include_router(chicken_race, tags=["Chicken Race"], prefix="/chicken_race")
 app.include_router(
     chicken_death_reason, tags=["Chicken Death Reason"], prefix="/chicken_death_reason"
 )
+app.include_router(auth_router, tags=["Auth"], prefix="/auth")
 
 
 @app.get("/")

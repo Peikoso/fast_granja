@@ -5,7 +5,7 @@ from sqlalchemy import extract, select, func
 
 from fast_granja.models import DailyEggsModel, FlockModel
 from fast_granja.router.annotated import T_Session
-from fast_granja.schema.eggs_schema import Eggs, EggsDTO, EggsMonth, EggsPatch
+from fast_granja.schema.eggs import Eggs, EggsDTO, EggsMonth, EggsPatch
 
 
 router = APIRouter()

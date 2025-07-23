@@ -7,7 +7,7 @@ from fast_granja.models import (
     FlockModel,
 )
 from fast_granja.router.annotated import T_Session
-from fast_granja.schema.chicken_schema import (
+from fast_granja.schema.chicken import (
     ChickenRace,
     ChickenRaceDTO,
 )

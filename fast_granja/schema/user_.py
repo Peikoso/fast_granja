@@ -18,3 +18,8 @@ class UserPatch(BaseModel):
     password: Optional[str] = Field(default=None, min_length=8)
     full_name: Optional[str] = Field(default=None, min_length=4)
     email: Optional[EmailStr] = None
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
