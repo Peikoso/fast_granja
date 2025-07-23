@@ -47,7 +47,7 @@ async def create_user(user: UserDTO, session: T_Session):
 
 
 @router.get("/", response_model=list[User])
-async def list_users(session: T_Session):
+async def list_users(session: T_Session, user: T_Admin):
     db_funcionaries = await session.scalars(select(UserModel).where(~UserModel.isAdmin))
 
     return db_funcionaries
