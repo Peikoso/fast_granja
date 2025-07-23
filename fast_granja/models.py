@@ -43,7 +43,7 @@ class FlockModel:
     amount: Mapped[int]
     arrival_date: Mapped[date]
     supplier_name: Mapped[str]
-    isActive: Mapped[bool]
+    isactive: Mapped[bool]
     flock_name: Mapped[str] = mapped_column(unique=True)
 
     race_id: Mapped[int] = mapped_column(

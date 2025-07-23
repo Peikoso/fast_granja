@@ -20,5 +20,5 @@ app.include_router(
 
 
 @app.get("/")
-def root():
+async def root():
     return "Bem vindo a Fast Granja"

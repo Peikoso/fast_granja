@@ -57,14 +57,12 @@ async def chicken_race_update(
     db_chicken_race = await session.scalar(
         select(ChickenRaceModel).where(ChickenRaceModel.id == chicken_race_id)
     )
-    
+
     if not db_chicken_race:
-        raise HTTPException(
-            status_code=HTTPStatus.NOT_FOUND, detail='Race not found'
-        )
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Race not found")
 
     db_chicken_race.race = chicken_race.race
-    
+
     await session.commit()
     await session.refresh(db_chicken_race)
 
@@ -76,22 +74,21 @@ async def delete_chicken_race(chicken_race_id: int, session: T_Session):
     db_flock = await session.scalar(
         select(FlockModel.id).where(FlockModel.race_id == chicken_race_id)
     )
-    
+
     if db_flock:
         raise HTTPException(
-            status_code=HTTPStatus.CONFLICT, detail="Can not delete a race linked to a flock"
+            status_code=HTTPStatus.CONFLICT,
+            detail="Can not delete a race linked to a flock",
         )
-    
+
     db_chicken_race = await session.scalar(
         select(ChickenRaceModel).where(ChickenRaceModel.id == chicken_race_id)
     )
-    
+
     if not db_chicken_race:
-        raise HTTPException(
-            status_code=HTTPStatus.NOT_FOUND, detail='Race not found'
-        )
-    
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Race not found")
+
     await session.delete(db_chicken_race)
     await session.commit()
-    
-    return 'Chicken race deleted'
+
+    return "Chicken race deleted"

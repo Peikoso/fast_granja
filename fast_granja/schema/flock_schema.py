@@ -12,7 +12,7 @@ class FlockCreate(BaseModel):
 
 
 class Flock(FlockCreate):
-    isActive: bool
+    isactive: bool
     id: int
 
 
@@ -23,7 +23,7 @@ class FlockPatch(BaseModel):
     arrival_date: date = Field(default=None)
     supplier_name: str = Field(default=None, min_length=3)
     flock_name: str = Field(default=None, min_length=1)
-    isActive: bool = Field(default=None)
+    isactive: bool = Field(default=None)
 
 
 class FlockOverview(Flock):

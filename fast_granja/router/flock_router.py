@@ -42,7 +42,7 @@ async def create_flock(flock: FlockCreate, session: T_Session):
         arrival_date=flock.arrival_date,
         supplier_name=flock.supplier_name,
         flock_name=flock.flock_name,
-        isActive=True,
+        isactive=True,
     )
 
     session.add(db_flock)
@@ -121,7 +121,7 @@ async def get_flock_by_id(flock_id: int, session: T_Session):
         arrival_date=db_flock.arrival_date,
         supplier_name=db_flock.supplier_name,
         flock_name=db_flock.flock_name,
-        isActive=db_flock.isActive,
+        isactive=db_flock.isactive,
         total_eggs=soma_total_eggs,
         total_broken_eggs=soma_broken_eggs,
         total_death_chicken=soma_chicken_death,

@@ -7,10 +7,12 @@ class ChickenDeathDTO(BaseModel):
     reason_id: int = Field(..., ge=0)
     day: date
 
-
 class ChickenDeath(ChickenDeathDTO):
     flock_id: int
     id: int
+
+class ChickenDeathUpdate(ChickenDeathDTO):
+    flock_id: int 
 
 
 class TotalChickenDeath(BaseModel):
