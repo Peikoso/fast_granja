@@ -11,7 +11,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from fast_granja.database import get_session
 from fast_granja.models import UserModel
-from fast_granja.schema.user_ import User
+from fast_granja.schema.user import User
 from fast_granja.settings import Settings
 
 settings = Settings()

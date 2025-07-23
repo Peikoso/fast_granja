@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from fast_granja.schema.user_ import Token
+from fast_granja.schema.user import Token
 from sqlalchemy import select
 from fastapi import APIRouter, HTTPException
 from fast_granja.models import UserModel

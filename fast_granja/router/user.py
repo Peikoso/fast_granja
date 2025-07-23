@@ -2,7 +2,7 @@ from http import HTTPStatus
 from fastapi import APIRouter, HTTPException
 from sqlalchemy import select
 from fast_granja.models import UserModel
-from fast_granja.schema.user_ import User, UserDTO, UserPatch
+from fast_granja.schema.user import User, UserDTO, UserPatch
 
 from fast_granja.router.annotated import T_Admin, T_Session
 from fast_granja.security import get_password_hash
