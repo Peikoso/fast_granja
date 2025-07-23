@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fast_granja.admin_create_script import admin_create
+from fast_granja.admin_create import admin_create
 from fast_granja.router.user import router as user
 from fast_granja.router.flock import router as flock
 from fast_granja.router.eggs import router as eggs
